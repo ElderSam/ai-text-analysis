@@ -1,0 +1,22 @@
+{
+  "name": "ai-text-analysis",
+  "version": "1.0.0",
+  "description": "API to analyse text and detect feelings using AI.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElderSam/ai-text-analysis.git"
+  },
+  "keywords": [
+    "AI", "API", "Text Analysis"
+  ],
+  "author": "ElderSam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ElderSam/ai-text-analysis/issues"
+  },
+  "homepage": "https://github.com/ElderSam/ai-text-analysis#readme"
+}
