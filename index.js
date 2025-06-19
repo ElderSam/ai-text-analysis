@@ -16,8 +16,8 @@ app.post("/analyze-text", async (request, reply) => {
     const { text } = request.body;
     console.log({ text });
 
-    const words = text.split(' ');
-    const wordsCount = words.length;
+    const words = text.trim().split(/\s+/);
+    const wordsCount = words.filter(Boolean).length;
 
     const resData = {
         text,
