@@ -16,12 +16,29 @@ app.post("/analyze-text", async (request, reply) => {
     const { text } = request.body;
     console.log({ text });
 
-    const words = text.trim().split(/\s+/);
-    const wordsCount = words.filter(Boolean).length;
+    const words = text
+        .trim().split(/\s+/)
+        .filter(Boolean);
+
+    const wordsCount = words.length;
+
+
+    const freq = {};
+
+    // words frequency
+    for(const word of words) {
+        freq[word] = (freq[word] || 0) + 1;
+    }
+
+    // top 5 most frequently words
+    const mostFrequentWords = Object.entries(freq)
+        .sort((a, b) =>  b[1] - a[1]) // descending order
+        .slice(0, 5);
 
     const resData = {
         text,
-        wordsCount
+        wordsCount,
+        mostFrequentWords
     };
 
     reply.send(resData);
