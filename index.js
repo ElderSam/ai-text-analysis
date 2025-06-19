@@ -2,9 +2,20 @@ import fastify from "fastify";
 
 const app = fastify();
 
-app.get("/", async (req, res) => {
+app.get("/", async (request, reply) => {
     return { message: "Hello, world!" };
 });
+
+app.post("/analyze-text", async (request, reply) => {
+    if(!request?.body?.text) {
+        return reply
+            .code(400)
+            .send(`body with 'text' property is required`);
+    }
+
+    const { text } = request.body;
+    console.log({ text });
+})
 
 const PORT = 3000;
 
