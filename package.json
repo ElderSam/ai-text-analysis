@@ -11,12 +11,17 @@
     "url": "git+https://github.com/ElderSam/ai-text-analysis.git"
   },
   "keywords": [
-    "AI", "API", "Text Analysis"
+    "AI",
+    "API",
+    "Text Analysis"
   ],
   "author": "ElderSam",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ElderSam/ai-text-analysis/issues"
   },
-  "homepage": "https://github.com/ElderSam/ai-text-analysis#readme"
+  "homepage": "https://github.com/ElderSam/ai-text-analysis#readme",
+  "dependencies": {
+    "fastify": "^5.4.0"
+  }
 }
