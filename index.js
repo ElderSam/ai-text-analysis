@@ -15,6 +15,16 @@ app.post("/analyze-text", async (request, reply) => {
 
     const { text } = request.body;
     console.log({ text });
+
+    const words = text.split(' ');
+    const wordsCount = words.length;
+
+    const resData = {
+        text,
+        wordsCount
+    };
+
+    reply.send(resData);
 })
 
 const PORT = 3000;
