@@ -8,10 +8,13 @@ app.get("/", async (req, res) => {
 
 const PORT = 3000;
 
-app.listen({ port: PORT }, (err, address) => {
-    if (err) {
-        console.error(err);
-        process.exit(1);
-    }
-    console.log(`Server is running at ${address}`);
-});
+// Run the server!
+try {
+    await app.listen({ port: PORT }, (_, address) => {
+        console.log(`Server is running at ${address}`);
+    })
+}
+catch (err) {
+    app.log.error(err)
+    process.exit(1)
+}
