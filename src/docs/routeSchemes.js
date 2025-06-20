@@ -65,6 +65,38 @@ const routeSchemes = {
                 }
             }
         }
+    },
+        "/search-term": {
+        summary: "Busca termo na última análise",
+        querystring: {
+            type: "object",
+            required: ["term"],
+            properties: {
+                term: { type: "string" }
+            }
+        },
+        response: {
+            200: {
+                type: "object",
+                properties: {
+                    term: { type: "string" },
+                    found: { type: "boolean" },
+                    lastAnalyzedText: { type: "string" }
+                }
+            },
+            400: {
+                type: "object",
+                properties: {
+                    error: { type: "string" }
+                }
+            },
+            404: {
+                type: "object",
+                properties: {
+                    error: { type: "string" }
+                }
+            }
+        }
     }
 }
 

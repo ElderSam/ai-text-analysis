@@ -2,6 +2,8 @@ import routeSchemes from './docs/routeSchemes.js';
 import { getBasicTextStatistics } from './helpers/text.js';
 import { textAnalysis } from './services/TextAnalysisByAI.js';
 
+let lastAnalysis = null;
+
 export default function routes(app) {
 
     app.get("/", {
@@ -35,6 +37,9 @@ export default function routes(app) {
                 reply.code(500);
             }
 
+            // Saves the last analysis in memory
+            lastAnalysis = { text, wordsCount, topWords, sentimentAnalysis };
+
             const resData = {
                 sentimentAnalysis,
                 wordsCount,
@@ -43,5 +48,30 @@ export default function routes(app) {
 
             reply.send(resData);
         }
-    })
+    });
+
+
+    app.get("/search-term", {
+        schema: routeSchemes['/search-term'],
+        handler: async (request, reply) => {
+            const { term } = request.query;
+            if (!term) {
+                return reply.code(400).send({ error: "Query param 'term' is required" });
+            }
+            if (!lastAnalysis) {
+                return reply.code(404).send({ error: "No analysis found. Please analyze a text first." });
+            }
+
+            // Search for the term in the text of the last analysis (case-insensitive)
+            const found = lastAnalysis.text
+                .toLowerCase()
+                .includes(term.toLowerCase());
+
+            reply.send({
+                term,
+                found,
+                lastAnalyzedText: lastAnalysis.text
+            });
+        }
+    });
 }
