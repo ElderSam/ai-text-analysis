@@ -3,7 +3,7 @@ export function formatSentiment(sentimentArr) {
         return "Unknown";
     }
     const top = sentimentArr.reduce((max, curr) => curr.score > max.score ? curr : max, sentimentArr[0]);
-    const percent = Math.round(top.score * 100);
+    const percent = (top.score * 100).toFixed(2);
     return `${percent}% ${top.label}`;
 }
 
