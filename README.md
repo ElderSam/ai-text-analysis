@@ -13,6 +13,8 @@ Você pode gerar uma key gratuita em: https://huggingface.co/settings/tokens. Es
 
 3. Inicie o server: ``npm start``
 
+4. Testar rotas (no Swagger)
+http://localhost:3000/docs
 
 ----------------------------------------
 ## Desafio
