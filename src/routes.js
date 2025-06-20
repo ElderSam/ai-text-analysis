@@ -7,7 +7,10 @@ export default function routes(app) {
     app.get("/", {
         schema: routeSchemes["/"],
         handler: async (request, reply) => {
-            return { message: "Hello, world!" };
+            const link = `/docs`;
+            const htmlContent = `Welcome. </br><a href='${link}'>Click here to access the API docs.</a>`;
+
+            return reply.type("text/html").send(htmlContent);
         }
     });
 
