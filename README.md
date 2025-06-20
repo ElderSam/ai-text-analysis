@@ -1,4 +1,22 @@
 # API com integração de IA
+
+## Como testar
+
+1. Instale dependências:
+``npm install``
+
+2. Crie o arquivo `.env` com sua Hugging Face API Key:
+``HF_API_KEY=your_huggingface_api_key_aqui``
+
+Você pode gerar uma key gratuita em: https://huggingface.co/settings/tokens. Escolha a tipo 'Read' e um nome.
+
+
+3. Inicie o server: ``npm start``
+
+
+----------------------------------------
+## Desafio
+
 ### Objetivo
 Criar uma API simples que:
 	1.	Analisa um texto de entrada.
