@@ -1,7 +1,9 @@
 # API com integração de IA
 API para analisar texto e detectar sentimentos usando IA.
 
-A API foi desenvolvida em Node.js, onde é possível chamar um endpoint onde é enviado um texto e a API da ``Higging Face AI`` vai retornar o resultado da análise desse texto c
+A API foi desenvolvida em Node.js, onde é possível chamar um endpoint onde é enviado um texto e a API da ``Higging Face AI`` vai retornar o resultado da análise desse texto a porcentagem de POSITIVO ou Negativo.
+
+<strong>ATENÇÃO</strong>: os resultados desse modelo da ``Higging Face`` são extremamente simplistas e imprecisos. Não recomendo usar essa AI. Eu poderia utilizar outras opções como ``OpenAI`` ou ``Claude``. Porém eu preferi uma alternativa gratuita para um teste rápido.
 
 ## ferramentas utilizadas
 - [``Node.js``](https://nodejs.org/) (ambiente de execução de [``JavaScript``](https://developer.mozilla.org/docs/Web/JavaScript))
@@ -26,6 +28,7 @@ Você pode gerar uma key gratuita em: https://huggingface.co/settings/tokens. Es
 
 4. Testar rotas (no Swagger)
 http://localhost:3000/docs
+ ![alt text](/public/routes-testing.gif)
 
 ----------------------------------------
 ## Desafio
