@@ -1,4 +1,15 @@
 # API com integração de IA
+API para analisar texto e detectar sentimentos usando IA.
+
+A API foi desenvolvida em Node.js, onde é possível chamar um endpoint onde é enviado um texto e a API da ``Higging Face AI`` vai retornar o resultado da análise desse texto c
+
+## ferramentas utilizadas
+- [``Node.js``](https://nodejs.org/) (ambiente de execução de [``JavaScript``](https://developer.mozilla.org/docs/Web/JavaScript))
+- [``Fastify``](https://fastify.dev/) (framework para criação da API)
+- [``Swagger``](https://swagger.io/) (para documentação da rotas da API)
+- [``dotenv``](https://www.npmjs.com/package/dotenv) (para o arquivo .env com variáveis de ambiente)
+- API da [``Higging Face AI``](https://huggingface.co). [Link do modelo utilizado](https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english). 
+OBSERVAÇÃO: só retorna a porcentagem de sentimento `positivo` ou `negativo`. Exemplo: ![alt text](/public/feeling-analysis-by-AI.png)
 
 ## Como testar
 
@@ -6,7 +17,7 @@
 ``npm install``
 
 2. Crie o arquivo `.env` com sua Hugging Face API Key:
-``HF_API_KEY=your_huggingface_api_key_aqui``
+``HF_API_KEY=your_huggingface_api_key_here``
 
 Você pode gerar uma key gratuita em: https://huggingface.co/settings/tokens. Escolha a tipo 'Read' e um nome.
 
