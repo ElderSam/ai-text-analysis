@@ -1,3 +1,5 @@
+import { formatSentiment } from "../helpers/formatSentiment.js";
+
 const huggingFaceAIBaseURL = 'https://api-inference.huggingface.co';
 const model = 'distilbert/distilbert-base-uncased-finetuned-sst-2-english';
 
@@ -23,7 +25,7 @@ export async function textAnalysis({request, text}) {
         const result = await hfResponse.json();
         const sentiment = result[0]; // ex: { label: "NEGATIVE", score: 0.998 }
 
-        return {sentiment};
+        return {sentiment: formatSentiment(sentiment)};
     }
     catch (err) {
         request.log.error(err);
