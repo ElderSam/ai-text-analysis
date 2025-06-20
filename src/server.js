@@ -15,7 +15,7 @@ await app.register(swaggerUI, swaggerUiOptions);
 app.register(routes);
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Run the server!
 try {
