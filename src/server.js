@@ -15,11 +15,12 @@ await app.register(swaggerUI, swaggerUiOptions);
 app.register(routes);
 
 
+const HOST = process.env.HOST || '0.0.0.0';
 const PORT = process.env.PORT || 3000;
 
 // Run the server!
 try {
-    const address = await app.listen({ port: PORT });
+    const address = await app.listen({ port: PORT, host: HOST });
     console.log(`Server is running at ${address}`);
 }
 catch (err) {
