@@ -1,5 +1,6 @@
 const routeSchemes = {
     "/": {
+        tags: ["Start"],
         summary: "Rota inicial",
         response: {
             200: {
@@ -11,6 +12,7 @@ const routeSchemes = {
         }
     },
     "/analyze-text": {
+        tags: ["Default"],
         summary: 'Analisar sentimento',
         body: {
             type: 'object',
@@ -66,7 +68,8 @@ const routeSchemes = {
             }
         }
     },
-        "/search-term": {
+    "/search-term": {
+        tags: ["Default"],
         summary: "Busca termo na última análise",
         querystring: {
             type: "object",

@@ -2,8 +2,8 @@
 
 export const swaggerUiOptions = {
     routePrefix: '/docs',
-        uiConfig: {
-        docExpansion: 'full',
+    uiConfig: {
+        docExpansion: 'list',
         deepLinking: false
     },
     uiHooks: {
