@@ -1,7 +1,8 @@
 import fastify from "fastify";
 import routes from "./routes.js";
+import './config.js';
 
-const app = fastify();
+const app = fastify({ logger: true });
 
 app.register(routes);
 

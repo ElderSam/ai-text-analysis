@@ -1,4 +1,5 @@
 import { getBasicTextStatistics } from './helpers/text.js';
+import { textAnalysis } from './services/TextAnalysisByAI.js';
 
 export default function routes(app) {
 
@@ -11,7 +12,7 @@ export default function routes(app) {
         if(!request?.body?.text) {
             return reply
                 .code(400)
-                .send(`body with 'text' property is required`);
+                .send({ error: `body with 'text' property is required` });
         }
 
         const { text } = request.body;
@@ -19,10 +20,16 @@ export default function routes(app) {
 
         const { wordsCount, topWords } = getBasicTextStatistics(text);
 
+        const sentmentAnalysis = await textAnalysis({request, text});
+        if(sentmentAnalysis.error) {
+            reply.code(500);
+        }
+
         const resData = {
             text,
+            sentmentAnalysis,
             wordsCount,
-            topWords
+            topWords,
         };
 
         reply.send(resData);
