@@ -23,7 +23,13 @@ export async function textAnalysis({request, text}) {
         );
 
         const result = await hfResponse.json();
+
         const sentiment = result[0]; // ex: { label: "NEGATIVE", score: 0.998 }
+
+        if(!sentiment) {
+            request.log.error(result.error);
+            return result;
+        }
 
         return {sentiment: formatSentiment(sentiment)};
     }

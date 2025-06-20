@@ -41,6 +41,28 @@ const routeSchemes = {
                         }
                     }
                 }
+            },
+            500: {
+                type: 'object',
+                properties: {
+                    sentimentAnalysis: {
+                        type: 'object',
+                        properties: {
+                            error: { type: 'string' }
+                        }
+                    },
+                    wordsCount: { type: 'number' },
+                    topWords: {
+                        type: 'array',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                word: { type: 'string' },
+                                count: { type: 'number' }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
